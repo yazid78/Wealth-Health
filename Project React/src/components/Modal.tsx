@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, setShow } from "../store";
-import '../css/App.css';
+import '../css/modal.css';
 
 const Modal = () => {
     const dispatch = useDispatch();
