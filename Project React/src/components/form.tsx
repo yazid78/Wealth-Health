@@ -14,7 +14,7 @@ const Form = () => {
         console.log('Employee save');
     }
     const prenom = useSelector((state: RootState) => state.app.employee);
-    console.error(prenom, 'Prenomm');
+    console.log(prenom, 'Info employee');
     return (
         <>
             <form>
@@ -25,7 +25,7 @@ const Form = () => {
                 <button onClick={() => {
                     dispatch(clearEmployee());
                 }}>
-
+                    Clear
                 </button>
             </div>
         </>
