@@ -1,0 +1,18 @@
+header {
+  margin-bottom: 100px;
+}
+header nav {
+  background-color: #a4c991;
+  padding: 10px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav img {
+  width: 6%;
+  height: auto;
+}
+nav a {
+  color: white;
+}

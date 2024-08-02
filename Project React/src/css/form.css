@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+.firstForm {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+.secondForm {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
