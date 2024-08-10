@@ -6,7 +6,6 @@ import '../css/form.css'
 import { states } from "../data";
 const Form = () => {
     const statesData = states.map(states => states.name)
-    console.log(statesData);
 
     const dispatch = useDispatch();
 
@@ -83,7 +82,7 @@ const Form = () => {
                 </fieldset>
 
             </form>
-            <div className="App">
+            <div className="saveButton">
                 <button onClick={saveEmployee}>Save Employee</button>
                 <button onClick={() => {
                     dispatch(clearEmployee());

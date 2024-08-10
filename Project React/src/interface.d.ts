@@ -1,4 +1,4 @@
-export interface Employee {
+export interface TypeEmployee {
     firstname: string,
     lastname: string,
     dateofbirth: string,
@@ -11,5 +11,5 @@ export interface Employee {
 }
 export interface AppState {
     show: boolean;
-    employee: Employee[]
+    employee: TypeEmployee[]
 }

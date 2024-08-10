@@ -7,11 +7,11 @@ const Modal = () => {
 
     const closeModal = () => {
         dispatch(setShow(false));
-        console.log("modal fermé");
+        /*   console.log("modal fermé"); */
     }
 
     const show = useSelector((state: RootState) => state.app.show);
-    console.log(show, 'Modal ouverte');
+    /* console.log(show, 'Modal ouverte'); */
 
     if (!show) {
         return null;

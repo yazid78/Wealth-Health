@@ -5,7 +5,7 @@ export const useOpenModal = () => {
     const dispatch = useDispatch();
     const openModal = () => {
         dispatch(setShow(true));
-        console.log("ca marche");
+        /*  console.log("ca marche"); */
     }
     return openModal
 };

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store.ts'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Home.tsx'
-import Employee from './components/Employee.tsx'
+import ListEmployee from './components/Employee.tsx'
 
 
 const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/employee",
-    element: <Employee />,
+    element: <ListEmployee />,
   },
 ]);
 
