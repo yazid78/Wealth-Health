@@ -4,6 +4,7 @@ form {
   justify-content: center;
   align-items: center;
   height: 50vh;
+  flex-wrap: wrap;
 }
 .firstForm {
   display: flex;
@@ -17,4 +18,43 @@ form {
 }
 .saveButton {
   text-align: center;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+}
+
+.saveButton button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton button:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 481px) {
+  .saveButton button {
+    margin-top: 100px;
+  }
+  .firstForm {
+    width: 65%;
+  }
+  nav h1 {
+    font-size: 14px;
+  }
+  nav a h3 {
+    font-size: 10px;
+  }
+  #logo {
+    display: block;
+    width: 50px;
+  }
 }

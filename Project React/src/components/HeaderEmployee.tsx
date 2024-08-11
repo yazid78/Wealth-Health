@@ -2,17 +2,17 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import '../css/header.css'
 
-const Header = () => {
+const HeaderEmployee = () => {
     return (
         <header>
             <nav>
-                <img id='logo' src={logo} alt="Logo" />
+                <img src={logo} alt="Logo" />
                 <h1>HRnet</h1>
-                <Link to={'/employee'}><h3> View Current Employees</h3></Link>
+                <Link to={'/'}><h3> Create Employee</h3></Link>
             </nav>
 
         </header>
     );
 }
 
-export default Header;
+export default HeaderEmployee;

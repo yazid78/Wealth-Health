@@ -3,17 +3,43 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 70vh;
   padding: 20px;
 }
 .table-responsive {
   overflow-x: auto;
 }
-
+.titleEmployee {
+  text-align: center;
+}
 .searchInput {
   display: flex;
   justify-content: flex-end;
-  width: 80%;
+  width: 85%;
+  margin-bottom: 15px;
+}
+.table {
+  width: 85%;
+}
+.rdt_TableRow {
+  background-color: black;
+}
+
+.buttonHome {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buttonHome:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {

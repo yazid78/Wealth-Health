@@ -1,5 +1,5 @@
 header {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 header nav {
   background-color: #a4c991;
@@ -10,8 +10,9 @@ header nav {
   align-items: center;
 }
 header nav img {
-  width: 6%;
+  width: 7%;
   height: auto;
+  border-radius: 15px;
 }
 nav a {
   color: white;
