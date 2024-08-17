@@ -182,13 +182,10 @@ const authSlice = createSlice({
         setEmployee: (state, action: PayloadAction<TypeEmployee>) => {
             state.employee.push(action.payload);
         },
-        clearEmployee: (state) => {
-            state.employee = [];
-        },
     },
 });
 
-export const { setShow, setEmployee, clearEmployee } = authSlice.actions;
+export const { setShow, setEmployee } = authSlice.actions;
 const appReducer = authSlice.reducer;
 
 const store = configureStore({
