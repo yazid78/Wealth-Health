@@ -1,17 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, setEmployee, setShow } from "../store";
+import { RootState, setEmployee } from "../store";
 import '../css/form.css';
 import { states } from "../data";
 import MyDatePicker from "./DatePicker";
-
-const useOpenModal = () => {
-    const dispatch = useDispatch();
-    const openModal = () => {
-        dispatch(setShow(true));
-    }
-    return openModal
-};
+import Modale from "./Modal";
 
 const Form = () => {
     const statesData = states.map(state => state.name);
@@ -28,20 +21,19 @@ const Form = () => {
     const [zipCode, setZipCode] = useState('');
     const [department, setDepartment] = useState('');
 
-    const [errors, setErrors] = useState(
-        {
-            firstname: '',
-            lastname: '',
-            dateofbirth: '',
-            startdate: '',
-            street: '',
-            city: '',
-            state: '',
-            zipCode: '',
-            department: '',
-        }
-    )
-    const openModal = useOpenModal();
+    const [errors, setErrors] = useState({
+        firstname: '',
+        lastname: '',
+        dateofbirth: '',
+        startdate: '',
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        department: '',
+    });
+
+    const [showModal, setShowModal] = useState(false);
 
     const validateForm = () => {
         const newErrors = {
@@ -56,13 +48,11 @@ const Form = () => {
             department: department ? '' : 'Department is required',
         };
         setErrors(newErrors);
-        // Vérifie s'il n'y a pas d'erreurs
         return Object.values(newErrors).every(error => error === '');
     };
+
     const saveEmployee = () => {
         if (validateForm()) {
-            openModal();
-
             const employee = {
                 firstname,
                 lastname,
@@ -76,7 +66,8 @@ const Form = () => {
             };
 
             dispatch(setEmployee(employee));
-            console.log('Employee saved');
+            setShowModal(true);
+
         }
     };
 
@@ -98,12 +89,11 @@ const Form = () => {
                         selected={dateofbirth}
                         onChange={(date) => setDateOfBirth(date)}
                         placeholder="Date of Birth"
-
                     />
                     {errors.dateofbirth && <span className="error">{errors.dateofbirth}</span>}
                     <label htmlFor="StartDate">Start Date</label>
                     <MyDatePicker
-                        selected={dateofbirth}
+                        selected={startdate}
                         onChange={(date) => setStartDate(date)}
                         placeholder="Start Date"
                     />
@@ -140,6 +130,7 @@ const Form = () => {
             </form>
             <div className="saveButton">
                 <button onClick={saveEmployee}>Save Employee</button>
+                {showModal && <Modale onClose={() => setShowModal(false)} />}
             </div>
         </>
     );

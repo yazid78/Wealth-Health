@@ -1,6 +1,6 @@
 import React from 'react';
-import DatePicker from 'react-datepicker'; // Importer le composant DatePicker
-import 'react-datepicker/dist/react-datepicker.css'; // Importer les styles CSS
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import '../css/form.css';
 
 interface MyDatePickerProps {

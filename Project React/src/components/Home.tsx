@@ -1,6 +1,6 @@
 import Form from "./FormPage";
 import Header from "./Header";
-import Modal from "./Modal";
+
 import '../css/app.css'
 
 
@@ -11,7 +11,7 @@ const Home = () => {
         <div>
 
             <Header />
-            <Modal />
+
             <Form />
 
         </div>
