@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, setEmployee } from "../store";
+import { useDispatch } from "react-redux";
+import { setEmployee } from "../store";
 import '../css/form.css';
-import { states } from "../data";
+import { departments, states } from "../data";
 import MyDatePicker from "./DatePicker";
 import Modale from "./Modal";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const Form = () => {
     const statesData = states.map(state => state.name);
@@ -71,24 +73,24 @@ const Form = () => {
         }
     };
 
-    const prenom = useSelector((state: RootState) => state.app.employee);
-    console.log(prenom, 'Info employee');
+
 
     return (
         <>
             <form>
                 <div className="firstForm">
                     <label htmlFor="firstname">Firstname</label>
-                    <input onChange={(e) => setFirstName(e.target.value)} type="text" placeholder="First Name" name='firstname' />
+                    <input id="firstname" onChange={(e) => setFirstName(e.target.value)} type="text" placeholder="First Name" name='firstname' />
                     {errors.firstname && <span className="error">{errors.firstname}</span>}
                     <label htmlFor="lastname">Lastname</label>
-                    <input onChange={(e) => setLastName(e.target.value)} type="text" placeholder="Last Name" name='lastname' />
+                    <input id="lastname" onChange={(e) => setLastName(e.target.value)} type="text" placeholder="Last Name" name='lastname' />
                     {errors.lastname && <span className="error">{errors.lastname}</span>}
                     <label htmlFor="DateofBirth">Date of Birth</label>
                     <MyDatePicker
                         selected={dateofbirth}
                         onChange={(date) => setDateOfBirth(date)}
                         placeholder="Date of Birth"
+                        id="dateofbirth"
                     />
                     {errors.dateofbirth && <span className="error">{errors.dateofbirth}</span>}
                     <label htmlFor="StartDate">Start Date</label>
@@ -96,35 +98,36 @@ const Form = () => {
                         selected={startdate}
                         onChange={(date) => setStartDate(date)}
                         placeholder="Start Date"
+                        id="startdate"
                     />
                     {errors.startdate && <span className="error">{errors.startdate}</span>}
                 </div>
                 <fieldset className="secondForm">
                     <legend>Address</legend>
                     <label htmlFor="street">Street</label>
-                    <input onChange={(e) => setStreet(e.target.value)} required type="text" placeholder="Street" name='street' />
+                    <input id="street" onChange={(e) => setStreet(e.target.value)} required type="text" placeholder="Street" name='street' />
                     {errors.street && <span className="error">{errors.street}</span>}
                     <label htmlFor="city">City</label>
-                    <input onChange={(e) => setCity(e.target.value)} type="text" placeholder="City" name='city' />
+                    <input id="city" onChange={(e) => setCity(e.target.value)} type="text" placeholder="City" name='city' />
                     {errors.city && <span className="error">{errors.city}</span>}
                     <label htmlFor="state">State</label>
-                    <select onChange={(e) => setState(e.target.value)} name="state" id="state">
-                        {statesData.map((state, index) => (
-                            <option key={index} value={state}>{state}</option>
-                        ))}
-                    </select>
+                    <Dropdown
+                        options={statesData}
+                        onChange={(option) => setState(option.value)}
+                        value={"Alabama"}
+                        placeholder="Select an option"
+                    />
                     {errors.state && <span className="error">{errors.state}</span>}
                     <label htmlFor="zipCode">ZipCode</label>
-                    <input onChange={(e) => setZipCode(e.target.value)} type="text" placeholder="Zip Code" name='zipCode' />
+                    <input id="zipcode" onChange={(e) => setZipCode(e.target.value)} type="text" placeholder="Zip Code" name='zipCode' />
                     {errors.zipCode && <span className="error">{errors.zipCode}</span>}
                     <label htmlFor="department">Department</label>
-                    <select onChange={(e) => setDepartment(e.target.value)} name="department" id="department">
-                        <option>Sales</option>
-                        <option>Marketing</option>
-                        <option>Engineering</option>
-                        <option>Human Resources</option>
-                        <option>Legal</option>
-                    </select>
+                    <Dropdown
+                        options={departments}
+                        onChange={(option) => setDepartment(option.value)}
+                        value={"Sales"}
+                        placeholder="Select a department"
+                    />
                     {errors.department && <span className="error">{errors.department}</span>}
                 </fieldset>
             </form>
