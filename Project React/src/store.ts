@@ -3,7 +3,6 @@ import { AppState, TypeEmployee } from './interface';
 
 
 const initialState: AppState = {
-    show: false,
     employee: [
         {
             firstname: "John",
@@ -176,16 +175,14 @@ const authSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        setShow: (state, action: PayloadAction<boolean>) => {
-            state.show = action.payload;
-        },
+
         setEmployee: (state, action: PayloadAction<TypeEmployee>) => {
             state.employee.push(action.payload);
         },
     },
 });
 
-export const { setShow, setEmployee } = authSlice.actions;
+export const { setEmployee } = authSlice.actions;
 const appReducer = authSlice.reducer;
 
 const store = configureStore({

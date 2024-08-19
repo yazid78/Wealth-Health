@@ -11,7 +11,6 @@ const Home = () => {
         <div>
 
             <Header />
-
             <Form />
 
         </div>

@@ -10,6 +10,5 @@ export interface TypeEmployee {
     zipCode: string
 }
 export interface AppState {
-    show: boolean;
     employee: TypeEmployee[]
 }
